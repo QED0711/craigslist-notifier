@@ -1,0 +1,61 @@
+**BASIC**
+
+- Users can sign up, sign in, logout 
+- Users can create new cragslist searches by:
+    - providing a url to an existing craigslist results page
+    - providing keywords for their own search
+
+- A search will load a craigslist page and scrape it for all it's listings
+- Any new listings will be emailed to the user
+- Searchs occur automatically every specified interval and store only new listings
+
+**VIEWS**
+
+- Home
+- Login
+- Signup
+- Active Searches (index)
+- New Search
+- Edit Search (edit/delete)
+
+
+**MODELS**
+
+- User
+    - email
+    - password (through bcrypt)
+    - location
+    - authorization level (through enum)
+
+- Search
+    - url
+    - scraper (with nokogiri)
+
+- Listing    
+    - title
+    - price
+    - image
+
+**DATABASE**
+
+===== User =====
+
+has_many :searches
+has_many :listings
+
+email:string password:string location:string authorization:integer
+
+===== Search =====
+
+belongs_to :user
+has_many :listings
+
+url:string
+
+===== Listing =====
+
+belongs_to :user
+belongs_to :search
+
+title:string price:string image:string
+
