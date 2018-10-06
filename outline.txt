@@ -35,6 +35,7 @@
     - title
     - price
     - image
+    - location
 
 **DATABASE**
 
@@ -57,5 +58,5 @@ url:string
 belongs_to :user
 belongs_to :search
 
-title:string price:string image:string
+title:string price:string image:string location:string
 
