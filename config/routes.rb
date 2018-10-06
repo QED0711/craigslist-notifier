@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'static#home'
 
+  resources :users, only: [:new, :create, :edit, :update]
+  get '/login' => 'users#login'
+
 end
