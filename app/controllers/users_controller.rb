@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     # before_action(new_user, only: [:login, :new])
 
     def login
+        @user = new_user
         # binding.pry
     end
 
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def new_user
-        @user = User.new
+        User.new
     end
 
 
