@@ -4,15 +4,19 @@ class UsersController < ApplicationController
 
     def login
         @user = new_user
-        # binding.pry
     end
 
     def new
         @user = new_user
     end
 
+    def signin
+        raise "Got to signin"
+    end
+
     def create
 
+        @user = User.find_or_create_by()
     end
 
     def edit
