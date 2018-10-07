@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
 
     def new
-
+        @user = new_user
     end
 
     def create
