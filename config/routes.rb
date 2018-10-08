@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get '/login' => 'users#login'
   post '/signin' => 'users#signin'
   
-  # resources :searches
+  get '/users/:user_id/current_searches' => 'searches#searches_data', as: :current_searches
 
 end

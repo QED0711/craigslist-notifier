@@ -19,4 +19,9 @@ class SearchesController < ApplicationController
 
   def delete
   end
+
+  def searches_data
+    searches = User.find(params[:user_id]).searches.as_json(only: [:url, :description, :user_id])
+    render json: searches
+  end
 end
