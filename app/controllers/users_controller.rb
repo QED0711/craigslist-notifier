@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
 
-    # before_action(new_user, only: [:login, :new])
-
     def login
-        binding.pry
         @user = new_user
         @alert = alert 
     end
 
     def new
-        binding.pry
         @user = new_user
     end
 
@@ -17,11 +13,10 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
         if !!@user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to user
+            redirect_to current_user
         else
             @user ||= User.new
             redirect_to :login, alert: "some errors"
-            # binding.pry
         end
     end
 
@@ -30,10 +25,10 @@ class UsersController < ApplicationController
             user = User.new(user_params)
             if user.save
                 session[:user_id] = user.id
-                redirect_to user
+                redirect_to current_user
             else
                 @user = user
-                render :signup
+                render :new
             end
         else
             user = User.new
