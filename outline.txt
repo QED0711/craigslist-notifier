@@ -9,6 +9,9 @@
 - Any new listings will be emailed to the user
 - Searchs occur automatically every specified interval and store only new listings
 
+- searches index: Users can see all their active or inactive searches.
+    - they can add a new search via ajax post
+
 **VIEWS**
 
 - Home

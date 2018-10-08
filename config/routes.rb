@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   
   root to: 'static#home'
   
-  resources :users, only: [:create, :edit, :update]
+  resources :users, only: [:create, :edit, :update] do
+    resources :searches
+  end
   get '/signup' => 'users#new'
   get '/login' => 'users#login'
   post '/signin' => 'users#signin'
   
-  resources :searches
-  
+  # resources :searches
+
 end

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:user][:email])
         if !!@user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to current_user
+            redirect_to user_searches_path(current_user)
         else
             @user ||= User.new
             redirect_to :login, alert: "some errors"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
             user = User.new(user_params)
             if user.save
                 session[:user_id] = user.id
-                redirect_to current_user
+                redirect_to user_searches_path(current_user)
             else
                 @user = user
                 render :new

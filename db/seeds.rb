@@ -7,4 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(email: "qdizon@gmail.com", password: "123", authorization: "admin")
+user = User.create(email: "qdizon@gmail.com", password: "123", authorization: "admin")
+
+user.searches.create(url: "https://washingtondc.craigslist.org/search/vga?query=pc", description: "pc video game listings in DC")
+user.searches.create(url: "https://washingtondc.craigslist.org/d/electronics/search/ela", description: "Electronics in DC")
