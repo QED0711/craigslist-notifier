@@ -1,7 +1,7 @@
 
 <div class="user-form">
 
-    <%= form_for user do |f| %>
+    <%= form_for user, url: url do |f| %>
 
         <%= f.label :email, url: signin_path %><br>
         <%= f.email_field :email %><br>

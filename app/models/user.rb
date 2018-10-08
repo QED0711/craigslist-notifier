@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
     enum authorization: [:admin, :user]
 
+    validate :email, presence: true
+
 end

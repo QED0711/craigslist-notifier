@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
         !!session[:user_id]
     end
 
+    def log_in
+        binding.pry
+        session[:user_id] = @user.id
+    end
+
 end
