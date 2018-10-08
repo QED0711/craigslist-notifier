@@ -1,2 +1,17 @@
 <h1>Searches#index</h1>
 <p>Find me in app/views/searches/index.html.erb</p>
+
+<div class="current_user" data-id=<%= @user.id %>
+</div>
+
+<script>
+
+    $(function(){
+        let user = $(".current_user")
+        // console.log(`/users/${user.data("id")}/current_searches`)
+        $.get(`/users/${user.data("id")}/current_searches.json`, function(data){
+            console.log(data)
+        })
+    })
+
+</script>
