@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
+    skip_before_action :login_redirect, only: [:login, :new, :signin, :create]
+
     def login
-        @user = new_user
+        @user = User.new
         @alert = alert 
     end
 
     def new
-        @user = new_user
+        @user = User.new
     end
 
     def signin
@@ -50,9 +52,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:email, :password)
     end
 
-    def new_user
-        User.new
-    end
+    
 
 
 end
