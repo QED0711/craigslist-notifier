@@ -7,23 +7,29 @@
         
 </div>
 
+<script id="card" type="text/x-handlebars-template">
+    {{#each this}}
+        <div class="search-card">
+            <div class="search-info">
+                <h3>{{description}}</h3>
+                <h6>url: {{url}}</h6>
+                <hr>
+            </div>
+            <a href={{url}} target="_blank">See Craiglist Page</a>
+        </div>
+    {{/each}}
+</script>
+
 <script>
 
     $(function(){
         let user = $(".current_user")
         $.get(`/users/${user.data("id")}/currentsearches.json`, function(data){
-            html = ""
-            data.forEach(json => {
-                html += `<div class="single-search">
-                        <h3>${json.description}</h3>
-                        <a href="${json.url}" target="_blank">See Page</a>
-                    </div>`
-
-            })
-            $(".searches").html(html)
-            $(".single-search").click(function(){
-                console.log(this) // do something else here when clicked
-            })
+            let template = Handlebars.compile(document.getElementById("card").innerHTML)
+            let results = template(data)
+            
+            $(".searches").html(results)
+            $(".search-info").click(getListings)
         })
     })
 

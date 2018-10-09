@@ -28,6 +28,7 @@ gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'sidekiq'
 gem 'jquery-rails'
+gem 'handlebars_assets'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

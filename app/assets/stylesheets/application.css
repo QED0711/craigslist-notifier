@@ -12,15 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require search_cards
  */
 
- .single-search{
-     cursor: pointer;
-     border-left: solid 10px blue;
-     padding: 0 0 4px 5px;
-     margin-bottom: 8px;
-     box-shadow: 2px 2px 5px grey;
-     width: 400px;
-     border-top-right-radius: 5px;
-     border-bottom-right-radius: 5px;
- }
