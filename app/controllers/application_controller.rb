@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     end
 
     def login_redirect
-        # raise "We hit this method".inspect
         if logged_in?
+            # raise user_searches_path(current_user).inspect
             redirect_to user_searches_path(current_user)
         else
             redirect_to :root

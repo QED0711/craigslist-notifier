@@ -1,5 +1,9 @@
 class SearchesController < ApplicationController
-  def index
+  
+  skip_before_action :login_redirect, only: [:index]
+
+  def index # user_searches_path(current_user)
+    redirect_to :root if !logged_in?
     @user = current_user
   end
 
