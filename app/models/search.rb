@@ -14,7 +14,7 @@ class Search < ApplicationRecord
             price = listing.css(".result-price").children.text # problem with this: gives "$25$25" as result
             title = listing.css(".result-title").children.text
             # image = (find way to image)
-            self.listings.find_or_create_by({url: listing_url, price: price, title: title})
+            self.listings.create({url: listing_url, price: price, title: title, user_id: self.user.id})
         end
         binding.pry
     end
