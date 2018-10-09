@@ -3,9 +3,14 @@
 <div class="current_user" data-id=<%= @user.id %>
 </div>
 
+<%= button_to "Create New Search", new_user_search_path(@user), method: :get %>
+
+
 <div class="searches">
         
 </div>
+
+
 
 <script id="card" type="text/x-handlebars-template">
     {{#each this}}
@@ -19,6 +24,8 @@
         </div>
     {{/each}}
 </script>
+
+
 
 <script>
 

@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   
-  skip_before_action :login_redirect, only: [:index, :searches_data]
+  skip_before_action :login_redirect, only: [:index, :new, :searches_data]
 
   def index # user_searches_path(current_user)
     redirect_to :root if !logged_in?
@@ -11,6 +11,7 @@ class SearchesController < ApplicationController
   end
 
   def new
+    @user = current_user
   end
 
   def create
