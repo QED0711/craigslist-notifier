@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   post '/signin' => 'users#signin'
   delete '/logout' => 'users#logout'
   
-  get '/users/:user_id/current_searches' => 'searches#searches_data', as: :current_searches
+  get '/users/:user_id/currentsearches' => 'searches#searches_data', as: :current_searches
 
 end
