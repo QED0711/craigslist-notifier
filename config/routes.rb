@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/login' => 'users#login'
   post '/signin' => 'users#signin'
+  delete '/logout' => 'users#logout'
   
   get '/users/:user_id/current_searches' => 'searches#searches_data', as: :current_searches
 

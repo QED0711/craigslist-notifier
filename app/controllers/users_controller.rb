@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
 
-    skip_before_action :login_redirect, only: [:login, :new, :signin, :create]
+    skip_before_action :login_redirect, only: [:login, :new, :signin, :create, :logout]
 
     def login
         @user = User.new
         @alert = alert 
+        render layout: false
     end
 
     def new
         @user = User.new
+        render layout: false
     end
 
     def signin
@@ -36,6 +38,12 @@ class UsersController < ApplicationController
             user = User.new
             redirect_to signup_path, errors: "Some errors"
         end
+    end
+
+    def logout
+        # raise "hit this".inspect
+        session.clear
+        redirect_to :root
     end
 
     def edit
