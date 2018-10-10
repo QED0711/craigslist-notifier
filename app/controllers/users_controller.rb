@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     def logout
         # raise "hit this".inspect
         session.clear
+        # raise session[:user_id].inspect
         redirect_to :root
     end
 
