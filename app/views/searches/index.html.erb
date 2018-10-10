@@ -32,15 +32,7 @@
 <script>
 
     $(function(){
-       /* let user = $(".current_user")
-        $.get(`/users/${user.data("id")}/currentsearches.json`, function(data){
-            let template = Handlebars.compile(document.getElementById("card").innerHTML)
-            let results = template(data)
-            
-            $(".searches").html(results)
-            $(".search-info").click(getListings)
-        }) */
-        getListings()
+        getAllSearches();
     })
 
 </script>
@@ -48,12 +40,10 @@
 <script>
     $("form").submit(function(e){
         e.preventDefault();
-        // let url = $("#search_url")[0].value
-        // let description = $("#search_description")[0].value
         let values = $(this).serialize();
         posting = $.post('/searches', values);
         posting.done(function(data){
-            getListings();
+            addRecentSearches();
             clearNewSearchForm();
         })
     })
