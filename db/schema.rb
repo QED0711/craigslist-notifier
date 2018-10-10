@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_153330) do
+ActiveRecord::Schema.define(version: 2018_10_06_183104) do
 
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.string "price"
     t.string "image"
     t.string "url"
+    t.string "map"
+    t.string "condition"
+    t.string "location"
     t.integer "search_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "location"
   end
 
   create_table "searches", force: :cascade do |t|
