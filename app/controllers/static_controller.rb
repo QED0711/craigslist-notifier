@@ -1,8 +1,11 @@
 class StaticController < ApplicationController
     skip_before_action :login_redirect, only: [:home]
     def home
-        render layout: "pre_login"
-        redirect_to user_searches_path(current_user) if logged_in? 
+        if logged_in?
+            redirect_to user_searches_path(current_user) if logged_in? 
+        else
+            render layout: "pre_login"
+        end
     end
 
 end

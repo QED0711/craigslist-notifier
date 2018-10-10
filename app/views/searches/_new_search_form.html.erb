@@ -1,0 +1,13 @@
+<div class="new-search-form">
+    <%= form_for search, url: new_searches_path do |f| %>
+    
+        <%= f.label :url %><br>
+        <%= f.text_field :url %><br>
+        
+        <%= f.label :description %><br>
+        <%= f.text_area :description %><br>
+
+        <%= f.submit "Define New Search" %>
+
+    <% end %>
+</div>

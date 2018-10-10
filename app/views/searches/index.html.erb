@@ -3,8 +3,10 @@
 <div class="current_user" data-id=<%= @user.id %>
 </div>
 
-<%= button_to "Create New Search", new_user_search_path(@user), method: :get %>
 
+<%= render partial: 'new_search_form', locals: {search: Search.new}  %>
+
+<h3>Manage Searches</h3>
 
 <div class="searches">
         
@@ -40,4 +42,17 @@
         })
     })
 
+</script>
+
+<script>
+    $("form").submit(function(e){
+        e.preventDefault();
+        // let url = $("#search_url")[0].value
+        // let description = $("#search_description")[0].value
+        let values = $(this).serialize();
+        posting = $.post('/searches', values);
+        posting.done(function(data){
+            console.log(data)
+        })
+    })
 </script>
