@@ -53,8 +53,8 @@
         let values = $(this).serialize();
         posting = $.post('/searches', values);
         posting.done(function(data){
-            getListings()
-            $("input[type=submit]").removeAttr('disabled')
+            getListings();
+            clearNewSearchForm();
         })
     })
 </script>

@@ -10,3 +10,9 @@ const getListings = () => {
     })
 }
 
+const clearNewSearchForm = () => {
+    $("input[type=submit]").removeAttr('disabled')
+    $("#search_url")[0].value = ""
+    $("#search_description")[0].value = ""
+}
+
