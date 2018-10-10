@@ -16,10 +16,11 @@ class SearchesController < ApplicationController
   end
 
   def create
-    search = Search.new(search_params)
-    search.user_id = current_user.id
-    search.save
-    binding.pry
+    @search = Search.new(search_params)
+    @search.user_id = current_user.id
+    @search.save
+    render json: @search, status: 201
+    # binding.pry
   end
 
   def edit
