@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(version: 2018_10_06_183104) do
 
   create_table "searches", force: :cascade do |t|
     t.string "url"
-    t.integer "user_id"
     t.text "description"
+    t.integer "user_id"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
