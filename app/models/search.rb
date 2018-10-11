@@ -31,10 +31,8 @@ class Search < ApplicationRecord
 
     def self.schedule_crawl
         while true do
-            sleep 30
-            self.all.each do |search|
-                search.find_new_listings
-            end
+            sleep 1
+            puts self.all.count
         end
     end
 
