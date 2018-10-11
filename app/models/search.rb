@@ -29,4 +29,13 @@ class Search < ApplicationRecord
         self.listings
     end
 
+    def self.schedule_crawl
+        while true do
+            sleep 30
+            self.all.each do |search|
+                search.find_new_listings
+            end
+        end
+    end
+
 end
