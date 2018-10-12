@@ -14,7 +14,7 @@ const getAllSearches = () => {
     $(".searches").html("")
     let user = $(".current_user")
     $.get(`/users/${user.data("id")}/currentsearches.json`, function(data){
-        console.log(data)
+        // console.log(data)
         let template = Handlebars.compile(document.getElementById("card").innerHTML)
         let results = template(data)
         
@@ -64,7 +64,7 @@ const toggleActive = () => {
         e.preventDefault();
         values = $(this).serialize()
         let posting = $.post('/toggle_active', values)
-        posting.done(function(data){
+        posting.done(function(){
             getAllSearches();
         })
     })    

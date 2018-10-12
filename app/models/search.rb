@@ -1,10 +1,24 @@
 require 'open-uri'
+# require 'sidekiq-scheduler'
 
 
 class Search < ApplicationRecord
 
+    # include Sidekiq::Worker
+
     belongs_to :user
     has_many :listings
+
+    def self.test
+        puts Time.new
+        self.delay(run_at: 7.seconds.from_now).test
+    end
+
+    # def self.other_test
+    #     puts Time.new
+    #     self.delay(run_at: 7.seconds.from_now).test
+    # end
+    # handle_asynchronously :test
 
     def find_new_listings
         doc = Nokogiri::HTML(open(self.url))
@@ -34,6 +48,10 @@ class Search < ApplicationRecord
             sleep 1
             puts self.all.count
         end
+    end
+
+    def perform
+        puts "this is a test"
     end
 
 end

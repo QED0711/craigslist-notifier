@@ -26,10 +26,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'sidekiq'
+# gem 'sidekiq'
+gem 'sidekiq-scheduler'
 gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'nokogiri'
+
+gem 'delayed_job_active_record' #run rake jobs:work to start jobs server in development
+# gem 'resque'
+# gem 'resque-scheduler'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
