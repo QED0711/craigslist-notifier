@@ -32,7 +32,7 @@ gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'nokogiri'
 
-gem 'delayed_job_active_record' #run rake jobs:work to start jobs server in development
+gem 'delayed_job_active_record' #run rake jobs:work to start jobs server in development, jobs:clear to clear db
 # gem 'resque'
 # gem 'resque-scheduler'
 

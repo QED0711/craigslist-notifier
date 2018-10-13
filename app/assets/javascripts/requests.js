@@ -51,11 +51,15 @@ const createNewSearch = () => {
     $(".new_search").submit(function(e){
         e.preventDefault();
         let values = $(this).serialize();
-        let posting = $.post('/searches', values);
-        posting.done(function(data){
+        $.post('/searches', values).done(function(data){
             addRecentSearches();
             clearNewSearchForm();
+            setErrors("");
+        }).fail(function(){
+            clearNewSearchForm();
+            setErrors("Your search must have a description and a valid cragslit URL");
         })
+
     })
 }
 
@@ -68,4 +72,8 @@ const toggleActive = () => {
             getAllSearches();
         })
     })    
+}
+
+const setErrors = (error) => {
+    $("#errors").html(`<p>${error}</p>`)
 }

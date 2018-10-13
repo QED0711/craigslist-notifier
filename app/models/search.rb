@@ -9,18 +9,9 @@ class Search < ApplicationRecord
     belongs_to :user
     has_many :listings
 
-    def self.test
-        puts Time.new
-        self.delay(run_at: 7.seconds.from_now).test
-    end
+    validate :valid_url?
 
-    # def self.other_test
-    #     puts Time.new
-    #     self.delay(run_at: 7.seconds.from_now).test
-    # end
-    # handle_asynchronously :test
-
-    def find_new_listings
+    def run
         doc = Nokogiri::HTML(open(self.url))
         listings = doc.css("li.result-row")
         # binding.pry
@@ -43,15 +34,13 @@ class Search < ApplicationRecord
         self.listings
     end
 
-    def self.schedule_crawl
-        while true do
-            sleep 1
-            puts self.all.count
-        end
-    end
+    private
 
-    def perform
-        puts "this is a test"
+    def valid_url?
+        doc = Nokogiri::HTML(open(self.url))
+        if !doc.css("li.result-row")
+            errors.add(:url, "URL must be a valid craigslist results page")
+        end
     end
 
 end
