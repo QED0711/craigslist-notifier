@@ -20,6 +20,7 @@ const getAllSearches = () => {
         
         resetSearches(results);
         toggleActive();
+        deleteSearch();
     })
 }
 
@@ -76,4 +77,21 @@ const toggleActive = () => {
 
 const setErrors = (error) => {
     $("#errors").html(`<p>${error}</p>`)
+}
+
+
+// Delete Requests
+
+const deleteSearch = () => {
+    $(".delete-link").click(function(e){
+        e.preventDefault();
+        let url = $(this).attr("href")
+        $.ajax({
+            url: url,
+            type: 'DELETE',
+            success: function(result) {
+                getAllSearches();
+            }
+        });
+    })
 }

@@ -17,7 +17,7 @@
 <script id="card" type="text/x-handlebars-template">
     {{#each this}}
         <div class="search-card active-{{active}}">
-            <p><a href="#">edit</a> | <a href="#">delete</a> | <a href={{url}} target="_blank">see craiglist page</a></p>
+            <p><a href="#">edit</a> | <a class="delete-link" href="/users/{{user_id}}/searches/{{id}}">delete</a> | <a href={{url}} target="_blank">see craiglist page</a></p>
             <form class="toggle_form" action="/toggle_active" method="post">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <input type="hidden" name="search[id]" value={{id}}>

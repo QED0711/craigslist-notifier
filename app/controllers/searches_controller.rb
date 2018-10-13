@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   
-  skip_before_action :login_redirect, only: [:index, :new, :searches_data, :create, :toggle_active]
+  skip_before_action :login_redirect, only: [:index, :new, :searches_data, :create, :toggle_active, :delete]
 
   def index # user_searches_path(current_user)
     redirect_to :root if !logged_in?
@@ -29,7 +29,8 @@ class SearchesController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    binding.pry
   end
 
   def searches_data
