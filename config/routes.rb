@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get '/users/:user_id/currentsearches' => 'searches#searches_data', as: :current_searches
   post '/searches' => 'searches#create', as: 'new_searches'
   post '/toggle_active' => "searches#toggle_active"
+  get '/searches/info/:id' => 'searches#search_info'
 end

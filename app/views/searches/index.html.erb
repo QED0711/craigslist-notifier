@@ -16,25 +16,42 @@
 
 <script id="card" type="text/x-handlebars-template">
     {{#each this}}
-        <div class="search-card active-{{active}}">
-            <p><a href="#">edit</a> | <a class="delete-link" href="/users/{{user_id}}/searches/{{id}}">delete</a> | <a href={{url}} target="_blank">see craiglist page</a></p>
-            <form class="toggle_form" action="/toggle_active" method="post">
-                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <input type="hidden" name="search[id]" value={{id}}>
-                {{#if active}}
-                    <input type="submit" value="Deactivate Search">
-                {{else}}
-                    <input type="submit" value="Activate Search">
-                {{/if}}
-                <!-- <input type="submit" value="activate/deactivated"> -->
-            </form>
-            <hr>
+        <div class="search-card active-{{active}}" id="search-card-{{id}}">
             <div class="search-info">
                 <h3>{{description}}</h3>
-                <h6>url: {{url}}</h6>
             </div>
+            <hr>
+            <p>
+                <form class="edit-button card-buttons" action="/users/{{user_id}}/searches/{{id}}/edit" method="get" data-id="{{id}}">
+                    <input type="submit" value="Edit">    
+                </form>                
+                |
+                <form class="toggle_form card-buttons" action="/toggle_active" method="post">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <input type="hidden" name="search[id]" value={{id}}>
+                    {{#if active}}
+                        <input type="submit" value="Deactivate">
+                    {{else}}
+                        <input type="submit" value="Activate">
+                    {{/if}}
+                </form>
+                |
+                <form class="delete-button card-buttons" action="/users/{{user_id}}/searches/{{id}}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">       
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>        
+                    <input type="submit" value="Delete">    
+                </form>                
+            </p>    
+                <a href={{url}} target="_blank">see this craiglist page</a>
+            
         </div>
     {{/each}}
+</script>
+
+<script id="edit-form" type="text/x-handlebars-template">
+    <form action="users/{{user_id}}/searches/{{id}}">
+        <input type="text" name="search[url]" id="url" placeholder={{url}}>
+    </form>
 </script>
 
 

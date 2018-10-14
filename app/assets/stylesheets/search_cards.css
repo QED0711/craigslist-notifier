@@ -24,3 +24,7 @@
 .active-false{
     border-left: solid 10px red;
 }
+
+.card-buttons{
+    display: inline;
+}

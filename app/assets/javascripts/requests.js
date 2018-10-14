@@ -10,6 +10,19 @@
 //     })
 // }
 
+const renderEditForm = () => {
+    $(".edit-button").submit(function(e){
+        e.preventDefault();
+        let searchID = $(this).data("id")
+        $.get(`/searches/info/${searchID}.json`, function(data){
+            console.log(data)
+        })
+        // let template = Handlebars.compile(document.getElementById("edit-form"));
+        // let results = template()
+        // $(`#search-card-${searchID}`).html("hello world")
+    })
+}
+
 const getAllSearches = () => {
     $(".searches").html("")
     let user = $(".current_user")
@@ -20,7 +33,7 @@ const getAllSearches = () => {
         
         resetSearches(results);
         toggleActive();
-        deleteSearch();
+        renderEditForm();
     })
 }
 
@@ -43,6 +56,7 @@ const addRecentSearches = () => {
         
         $(".searches").append(results)
         toggleActive();
+        renderEditForm();
     }) 
 }
 
@@ -79,19 +93,3 @@ const setErrors = (error) => {
     $("#errors").html(`<p>${error}</p>`)
 }
 
-
-// Delete Requests
-
-const deleteSearch = () => {
-    $(".delete-link").click(function(e){
-        e.preventDefault();
-        let url = $(this).attr("href")
-        $.ajax({
-            url: url,
-            type: 'DELETE',
-            success: function(result) {
-                getAllSearches();
-            }
-        });
-    })
-}
