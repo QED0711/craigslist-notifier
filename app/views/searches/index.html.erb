@@ -49,8 +49,18 @@
 </script>
 
 <script id="edit-form" type="text/x-handlebars-template">
-    <form action="users/{{user_id}}/searches/{{id}}">
-        <input type="text" name="search[url]" id="url" placeholder={{url}}>
+    <form class="card-edit-form" action="/users/{{user_id}}/searches/{{id}}" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        
+        <label for="url-{{id}}">URL:</label><br>
+        <input type="text" name="search[url]" id="url-{{id}}" class="edit-url" value={{url}}><br>
+
+        <label for="description-{{id}}">Description:</label><br>
+        <textarea name="search[description]" id="description-{{id}}" class="edit-description">{{description}}</textarea><br>
+        <p>
+            <input type="submit" value="Save Edits" class="card-buttons">
+            <button class="card-buttons delete-edits">Delete Edits</button>
+        </p>
     </form>
 </script>
 

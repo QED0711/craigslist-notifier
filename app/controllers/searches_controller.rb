@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   
-  skip_before_action :login_redirect, only: [:index, :new, :searches_data, :create, :toggle_active, :destroy, :search_info]
+  skip_before_action :login_redirect, only: [:index, :new, :searches_data, :create, :toggle_active, :destroy, :search_info, :update]
 
   def index # user_searches_path(current_user)
     redirect_to :root if !logged_in?
@@ -27,6 +27,10 @@ class SearchesController < ApplicationController
   end
 
   def update
+    # binding.pry
+    @search = Search.find(params[:id])
+    @search.update(search_params)
+    render nothing: true, status: 204
   end
 
   def destroy
@@ -50,8 +54,8 @@ class SearchesController < ApplicationController
 
   def search_info
     search = Search.find(params[:id]).to_json(only: [:id, :url, :description, :user_id])
+    render json: search
     # binding.pry
-    render json: search, status: 204
   end
 
   private

@@ -28,3 +28,7 @@
 .card-buttons{
     display: inline;
 }
+
+.edit-url, .edit-description{
+    width: 97%;
+}

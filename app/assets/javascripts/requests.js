@@ -16,10 +16,14 @@ const renderEditForm = () => {
         let searchID = $(this).data("id")
         $.get(`/searches/info/${searchID}.json`, function(data){
             console.log(data)
+            // debugger
+            let template = Handlebars.compile(document.getElementById("edit-form").innerHTML);
+            let result = template(data);
+            $(`#search-card-${searchID}`).html(result)
+
+            postEdits();
+            deleteEdits();
         })
-        // let template = Handlebars.compile(document.getElementById("edit-form"));
-        // let results = template()
-        // $(`#search-card-${searchID}`).html("hello world")
     })
 }
 
@@ -34,6 +38,7 @@ const getAllSearches = () => {
         resetSearches(results);
         toggleActive();
         renderEditForm();
+        
     })
 }
 
@@ -91,5 +96,33 @@ const toggleActive = () => {
 
 const setErrors = (error) => {
     $("#errors").html(`<p>${error}</p>`)
+}
+
+// EDIT FORM
+
+const postEdits = () => {
+    $(".card-edit-form").submit(function(e){
+        e.preventDefault();
+        // console.log("Will post now")
+        let url = $(this).attr("action")
+        console.log(url)
+        let values = $(this).serialize();
+        $.ajax({
+            url: url,
+            data: values,
+            type: "patch"
+        }).done(function(data){
+            getAllSearches();
+        }).fail(function(){
+            getAllSearches();
+        })
+    })
+}
+
+const deleteEdits = () => {
+    $(".delete-edits").click(function(e){
+        e.preventDefault();
+        getAllSearches();
+    })
 }
 
