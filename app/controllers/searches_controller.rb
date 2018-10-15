@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   
-  skip_before_action :login_redirect, only: [:index, :new, :searches_data, :create, :toggle_active, :destroy, :search_info, :update]
+  # skip_before_action :login_redirect, only: [:index, :new, :searches_data, :create, :toggle_active, :destroy, :search_info, :update]
 
   def index # user_searches_path(current_user)
     redirect_to :root if !logged_in?
@@ -27,9 +27,15 @@ class SearchesController < ApplicationController
   # end
 
   def update
-    # binding.pry
     @search = Search.find(params[:id])
+    if @search.url != params[:search][:url]
+      @search.listings.each do |listing|
+        listing.delete
+      end
+    end
+    # binding.pry
     @search.update(search_params)
+    # @search.save
     render nothing: true, status: 204
   end
 

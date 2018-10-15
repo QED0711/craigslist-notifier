@@ -17,10 +17,8 @@ class ApplicationController < ActionController::Base
     end
 
     def login_redirect
-        if logged_in?
+        if !logged_in?
             # raise user_searches_path(current_user).inspect
-            redirect_to user_searches_path(current_user)
-        else
             redirect_to :root
         end
     end

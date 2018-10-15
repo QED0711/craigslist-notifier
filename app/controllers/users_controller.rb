@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :login_redirect, only: [:login, :new, :signin, :create, :logout]
+    skip_before_action :login_redirect, only: [:login, :new, :signin, :create]
 
     def login
         @user = User.new
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
             redirect_to user_searches_path(current_user)
         else
             @user ||= User.new
-            redirect_to :login, alert: "some errors"
+            redirect_to :login, alert: "Incorrect Email of Password"
         end
     end
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
             end
         else
             user = User.new
-            redirect_to signup_path, errors: "Some errors"
+            redirect_to signup_path, errors: "Invalid Email or Password"
         end
     end
 
