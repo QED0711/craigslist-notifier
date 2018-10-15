@@ -10,8 +10,9 @@ class Search < ApplicationRecord
     has_many :listings
 
     validate :valid_url?
+    after_save :get_base_listings
 
-    def run
+    def run(is_base = false)
         doc = Nokogiri::HTML(open(self.url))
         listings = doc.css("li.result-row")
         # binding.pry
@@ -29,9 +30,16 @@ class Search < ApplicationRecord
                 l.title = title
                 l.location = location
                 l.user_id = self.user.id
+                if is_base
+                    l.base = true
+                end
             end
         end
         self.listings
+    end
+
+    def get_base_listings
+        self.delay.run(true)
     end
 
     private

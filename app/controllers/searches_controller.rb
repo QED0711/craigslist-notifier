@@ -8,8 +8,8 @@ class SearchesController < ApplicationController
     @searches = current_user.searches
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @user = current_user
@@ -23,8 +23,8 @@ class SearchesController < ApplicationController
     # binding.pry
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def update
     # binding.pry
@@ -35,7 +35,11 @@ class SearchesController < ApplicationController
 
   def destroy
     # binding.pry
-    Search.find(params[:id]).delete
+    @search = Search.find(params[:id])
+    @search.listings.each do |listing|
+      listing.delete
+    end
+    @search.delete
     redirect_to user_searches_path(params[:user_id])
   end
 
