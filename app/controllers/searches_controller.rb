@@ -6,6 +6,7 @@ class SearchesController < ApplicationController
     redirect_to :root if !logged_in?
     @user = current_user
     @searches = current_user.searches
+    ListingMailer.sample_email.deliver_now
   end
 
   # def show
