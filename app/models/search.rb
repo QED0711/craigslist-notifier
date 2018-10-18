@@ -10,6 +10,7 @@ class Search < ApplicationRecord
     has_many :listings
 
     validate :valid_url?
+    before_save :append_queries
     after_save :get_base_listings
 
     def run(is_base = false)
@@ -40,6 +41,41 @@ class Search < ApplicationRecord
 
     def get_base_listings
         self.delay.run(true)
+    end
+
+
+    def append_queries
+        if self.has_query?
+            if self.ends_with_ampersand?
+                if self.has_query_items?
+                    self.require_sort_date
+                end
+            else
+                self.url += "&"
+                self.require_sort_date
+            end
+        else
+            self.url += "?"
+            self.require_sort_date
+        end
+    end
+
+    def has_query_itmes?
+        !!self.url.match(/\?.+/)
+    end
+
+    def has_query?
+        !!self.url.match(/\?/)
+    end
+
+    def ends_with_ampersand?
+        self.url.match(/\&$/)
+    end
+
+    def require_sort_date
+        if !self.url.match(/sort=date/)
+            self.url += "sort=date&"
+        end
     end
 
     private
