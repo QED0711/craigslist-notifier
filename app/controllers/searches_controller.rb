@@ -5,8 +5,8 @@ class SearchesController < ApplicationController
   def index # user_searches_path(current_user)
     redirect_to :root if !logged_in?
     @user = current_user
+    ListingMailer.test_email(@user).deliver
     @searches = current_user.searches
-    ListingMailer.sample_email.deliver_now
   end
 
   # def show
