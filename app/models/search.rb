@@ -20,10 +20,7 @@ class Search < ApplicationRecord
         listings.each do |listing|
             listing_url = listing.css("a").first.attributes["href"].value 
             title = listing.css(".result-title").children.text
-            price = listing.css(".result-price").first
-            if !!price
-                price = price.children.text
-            end
+            price = listing.css(".result-price").first.children.text if listing.css(".result-price").first
             location = listing.css(".result-hood").text.strip.gsub(/[()]/, "")
             
             self.listings.find_or_create_by(url: listing_url) do |l|
@@ -75,6 +72,12 @@ class Search < ApplicationRecord
     def require_sort_date
         if !self.url.match(/sort=date/)
             self.url += "sort=date&"
+        end
+    end
+
+    def mark_listings_as_base
+        self.listings.where(base: false).each do |listing|
+            listing.update(base: true)
         end
     end
 
