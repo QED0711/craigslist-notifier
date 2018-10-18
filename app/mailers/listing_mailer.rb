@@ -12,4 +12,8 @@ class ListingMailer < ApplicationMailer
         mail(to: @user.email, subject: "this is a test")
     end
 
+    def new_listings(user)
+        @user = user
+    end
+
 end
