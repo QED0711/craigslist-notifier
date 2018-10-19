@@ -11,7 +11,10 @@ class Search < ApplicationRecord
 
     validate :valid_url?
     before_save :append_queries
-    after_save :get_base_listings
+    before_create :append_queries
+
+    after_create :get_base_listings
+    after_update :get_base_listings
 
     def run(is_base = false)
         doc = Nokogiri::HTML(open(self.url))
@@ -44,16 +47,19 @@ class Search < ApplicationRecord
     def append_queries
         if self.has_query?
             if self.ends_with_ampersand?
-                if self.has_query_items?
+                if self.has_query_itmes?
                     self.require_sort_date
+                    self.require_posted_today
                 end
             else
                 self.url += "&"
                 self.require_sort_date
+                self.require_posted_today
             end
         else
             self.url += "?"
             self.require_sort_date
+            self.require_posted_today
         end
     end
 
@@ -70,8 +76,16 @@ class Search < ApplicationRecord
     end
 
     def require_sort_date
-        if !self.url.match(/sort=date/)
+        if !self.url.match(/sort=/)
             self.url += "sort=date&"
+        else
+            self.url = self.url.gsub(/sort=[a-z]+/, "sort=date")
+        end
+    end
+
+    def require_posted_today
+        if !self.url.match(/postedToday=1/)
+            self.url += "postedToday=1&"
         end
     end
 

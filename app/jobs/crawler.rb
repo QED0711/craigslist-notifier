@@ -5,9 +5,7 @@ class Crawler
         
         searches.each do |search|
             search.run
-            if search.listings.where(base: false).count > 0
-                ListingMailer.send_new_listings(search)
-            end
+            Messager.send_emails(search)
             search.mark_listings_as_base
         end
 

@@ -5,12 +5,12 @@
     <%= form_for search, url: new_searches_path do |f| %>
     
         <%= f.label :url %><br>
-        <%= f.text_field :url %><br>
+        <%= f.text_field :url, placeholder: "(paste your craigslist link here)" %><br>
         
         <%= f.label :description %><br>
-        <%= f.text_area :description %><br>
+        <%= f.text_area :description, placeholder: "(a short description of the expected items on the page)" %><br>
 
-        <%= f.submit "Define New Search" %>
+        <%= f.submit "Define New Search", id: "define_search" %>
 
     <% end %>
 </div>

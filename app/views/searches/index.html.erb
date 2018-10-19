@@ -1,12 +1,10 @@
-<h3>User: <%= @user.email %></h3>
-
 <div class="current_user" data-id=<%= @user.id %>
 </div>
 
 
 <%= render partial: 'new_search_form', locals: {search: Search.new}  %>
 
-<h3>Manage Searches</h3>
+<h2 class="searches-heading">Manage Searches</h2>
 
 <div class="searches">
         
@@ -16,6 +14,7 @@
 
 <script id="card" type="text/x-handlebars-template">
     {{#each this}}
+        
         <div class="search-card active-{{active}}" id="search-card-{{id}}">
             <div class="search-info">
                 <h3>{{description}}</h3>

@@ -1,0 +1,61 @@
+:root{
+    --background: rgb(65, 76, 88);
+    
+    --border-color: rgb(0, 197, 220);
+    --form-element-background: rgb(65, 76, 88);
+    --form-font-color: rgb(201, 203, 203);
+}
+
+.new-search-form{
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--background);
+    padding: 8px 5%;
+    color: var(--form-font-color);
+}
+
+#search_url, #search_description{
+    width: 100%;
+    margin: 0 auto;
+
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+
+    background-color: var(--form-background);
+    color: var(--form-font-color);
+
+    resize: none;
+}
+
+/* define search button */
+#define_search{
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+    font-size: 1.2em;
+    padding: 8px 0;
+
+    border: 4px solid var(--border-color);
+    color: var(--form-font-color);
+    border-radius: 30px;
+    background-color: var(--form-background);
+
+    cursor: pointer;
+    white-space: normal;
+
+}
+
+/* @media only screen and (max-width: 900px){
+    #define_search{
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    #define_search{
+        font-size: 1em;
+    }
+} */

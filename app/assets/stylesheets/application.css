@@ -13,5 +13,7 @@
  *= require_tree .
  *= require_self
  *= require search_cards
+ *= require new_search_form
+ *= require navigation
  */
 

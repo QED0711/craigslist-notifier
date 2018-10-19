@@ -11,7 +11,11 @@
 
   <body>
     <%= render partial: 'layouts/navigation' %>
-
-    <%= yield %>
+    <div id="background">
+      <div id="app">
+      <%= yield %>
+      </div>
+    </div>
+    
   </body>
 </html>
