@@ -1,9 +1,9 @@
 body{
     background-color: #ce6a7e;
-    background-image: linear-gradient(180deg, #ffb583 28%, #ce6a7e 81%);
+    background-image: linear-gradient(0deg, #ce6a7e 0%, #ffb583 60%);
     
-    
-    
+
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
