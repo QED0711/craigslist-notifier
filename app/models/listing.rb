@@ -19,4 +19,8 @@ class Listing < ApplicationRecord
         self.save
     end
 
+    def self.delete_old_listings
+        self.where('created_at <= ?', 1.day.ago).each {|listing| listing.delete}
+    end
+
 end
