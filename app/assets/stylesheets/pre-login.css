@@ -1,0 +1,57 @@
+:root{
+    --primary-blue: #8bc2f8;
+}
+
+#landing-box{
+    font-family: Arial, Helvetica, sans-serif;
+
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+
+    background-color: var(--primary-light); 
+    padding: 20px 0 25px;
+    border-radius: 10px;
+
+    box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.445);
+
+    font-family:var(--primary-font);
+}
+
+.login-buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#pre-login a{
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.title{
+    color: var(--primary-dark);
+    font-family: var(--primary-font);
+    font-weight: 200;
+}
+
+#pre-login form input{
+    font-size: 1.7em;
+    background-color: var(--primary-light);
+    width: 75%;
+    border-radius: 4px;
+}
+
+#pre-login form input[type=submit]{
+    cursor: pointer;
+    color: var(--primary-light);
+    background-color: var(--primary-accent);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#pre-login form input[type="email"], input[type="password"]{
+    border: 1px solid var(--primary-dark);
+}
+
+

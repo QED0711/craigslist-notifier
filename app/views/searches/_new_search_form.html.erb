@@ -2,7 +2,7 @@
 
 <div id="instructions">
     <h1>Craigslist Notifier</h1>
-    <p>Get email notifications for new Craigslist listings within minutes of them being posted. Go to <em><a class="cl-link" href="https://www.craigslist.com" target="_blank">Craigslist.com</a></em> and search for the items you are looking for. Once you are happy with your search results, copy and paste the url below. Add a short description, and you're done! The craigslist notification app will watch the search page and notify you of any new listings.</p>
+    <p>Get email notifications for new Craigslist listings within minutes of them being posted. Go to <em><a class="cl-link" href="https://www.craigslist.com" target="_blank">Craigslist.com</a></em> and search for the items you are looking for. Once you are happy with your search results, copy and paste the url below. Add a short description, and you're done! The craigslist notification app will watch the provided page and notify you of any new listings.</p>
 </div>
     <div id="errors">
 
@@ -15,7 +15,7 @@
         <%= f.label :description %><br>
         <%= f.text_area :description, placeholder: "(a short description of the expected items on the page)" %><br>
 
-        <%= f.submit "Define New Search", id: "define_search" %>
+        <%= f.submit "Watch This Page", id: "define_search" %>
 
     <% end %>
 </div>

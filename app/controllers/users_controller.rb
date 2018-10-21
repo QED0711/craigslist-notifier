@@ -5,12 +5,12 @@ class UsersController < ApplicationController
     def login
         @user = User.new
         @alert = alert 
-        render layout: false
+        render layout: "pre_login"
     end
 
     def new
         @user = User.new
-        render layout: false
+        render layout: "pre_login"
     end
 
     def signin

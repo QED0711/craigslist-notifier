@@ -1,4 +1,7 @@
 
-<%= @alert %>
 
-<%= render partial: 'users/user_form', locals: {user: @user, action: "login", url: signin_path} %>
+<div id="landing-box">
+    <%= @alert %>
+    <%= render partial: 'users/user_form', locals: {user: @user, action: "login", url: signin_path} %>
+    <%= button_to "Back Home", root_path, method: :get %>
+</div>

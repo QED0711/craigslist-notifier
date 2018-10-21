@@ -77,7 +77,7 @@ const createNewSearch = () => {
             setErrors("");
         }).fail(function(){
             clearNewSearchForm();
-            setErrors("Your search must have a description and a valid cragslit URL");
+            setErrors("Your search must have a description and a valid Craigslit URL");
         })
 
     })
@@ -95,7 +95,7 @@ const toggleActive = () => {
 }
 
 const setErrors = (error) => {
-    $("#errors").html(`<p>${error}</p>`)
+    $("#errors").html(`<p><em>${error}</em></p>`)
 }
 
 // EDIT FORM

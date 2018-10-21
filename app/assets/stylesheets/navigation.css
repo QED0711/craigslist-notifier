@@ -1,5 +1,22 @@
 .navigation{
-    max-width: 600px;
+    max-width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
+    background-color: var(--primary-light);
+
+    padding: 10px 0 0 10px;
+
+    font-family: var(--primary-font);
+
+    text-align: center;
+}
+
+.navigation form input{
+    font-size: 1.7em;
+    background-color: var(--primary-light);
+    width: 75%;
+    border-radius: 4px;
+    background-color: var(--primary-accent);
+    color: var(--primary-light);
 }
