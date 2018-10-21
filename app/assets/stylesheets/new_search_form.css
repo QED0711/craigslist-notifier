@@ -8,10 +8,12 @@
     width: 90%;
     margin: 0 auto;
     padding: 8px 5%;
-    color: var(--primary-dark);
+    color: var(--primary-light);
     font-family: var(--primary-font); 
 
     background-color: var(--tertiary-dark);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #search_url, #search_description{
@@ -35,6 +37,8 @@
     display: block;
     width: 30%;
     margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
     font-size: 1.2em;
     padding: 8px 0;
     border: none;

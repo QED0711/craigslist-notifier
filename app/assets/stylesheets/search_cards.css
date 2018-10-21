@@ -51,7 +51,7 @@
 }
 
 .active-true{
-    border-left: solid 10px var(--primary-light);
+    border-left: solid 10px var(--primary-dark);
 }
 
 .active-false{

@@ -27,7 +27,8 @@
      --primary-font: 'Verdana', Geneva, Tahoma, sans-serif;
 
      --secondary-dark: #27b4a8;
-     --tertiary-dark: #2cd3c5;
+     --tertiary-dark: rgb(34, 151, 147);
+     /* --tertiary-dark: rgb(39, 180, 168); */
 
  }
 
