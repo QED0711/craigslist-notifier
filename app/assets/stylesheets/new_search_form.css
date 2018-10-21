@@ -10,6 +10,8 @@
     padding: 8px 5%;
     color: var(--primary-dark);
     font-family: var(--primary-font); 
+
+    background-color: var(--tertiary-dark);
 }
 
 #search_url, #search_description{
