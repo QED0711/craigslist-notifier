@@ -16,6 +16,7 @@
  *= require new_search_form
  *= require navigation
  *= require pre-login
+ *= require edit-form
  */
 
  :root{

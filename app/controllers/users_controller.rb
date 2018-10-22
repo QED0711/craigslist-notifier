@@ -52,7 +52,14 @@ class UsersController < ApplicationController
     end
 
     def update
-
+        @user = current_user
+        if @user.authenticate(params[:user][:password])
+            if params[:user][:new_password] != ""
+                @user.password = params[:user][:new_password]
+                @user.save
+            end
+        end
+        redirect_to :root
     end
 
     private

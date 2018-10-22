@@ -1,0 +1,18 @@
+#edit-form form input{
+    font-size: 1.7em;
+    background-color: var(--primary-light);
+    width: 75%;
+    border-radius: 4px;    
+}
+
+#edit-form form input[type=email], input[type=password]{
+    border: 1px solid var(--primary-dark);
+}
+
+#edit-form form input[type=submit]{
+    cursor: pointer;
+    color: var(--primary-light);
+    background-color: var(--primary-accent);
+    font-weight: 600;
+    margin-top: 10px;
+}

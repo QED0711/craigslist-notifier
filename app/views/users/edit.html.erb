@@ -1,16 +1,8 @@
 <h3>This is the edit form</h3>
 
 <div id="landing-box">
-    <%= form_for current_user do |f| %>
-        <%= f.label :email %><br>
-        <%= f.email_field :email %><br>
-        
-        <%= f.label :current_password %><br>
-        <%= f.password_field :password %><br>
 
-        <%= f.label :new_password %><br>
-        <%= f.password_field :new_password %><br>
 
-        <%= f.submit %>
-    <% end %>
+        <%= render partial: 'user_edit_form' %>
+
 </div>

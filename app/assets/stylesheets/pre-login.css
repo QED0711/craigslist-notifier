@@ -3,7 +3,7 @@
 }
 
 #landing-box{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--primary-font);
 
     width: 500px;
     margin: 0 auto;
@@ -41,6 +41,8 @@
     width: 75%;
     border-radius: 4px;
 }
+
+
 
 #pre-login form input[type=submit]{
     cursor: pointer;
