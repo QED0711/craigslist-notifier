@@ -1,8 +1,7 @@
-<h3>This is the edit form</h3>
+
 
 <div id="landing-box">
 
-
-        <%= render partial: 'user_edit_form' %>
+        <%= render partial: 'user_edit_form', locals: {errors: @errors}%>
 
 </div>

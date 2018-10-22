@@ -1,16 +1,22 @@
 .navigation{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     background-color: var(--primary-light);
 
-    padding: 10px 0 0 10px;
+    padding: 10px 0;
 
     font-family: var(--primary-font);
 
     text-align: center;
+}
+
+@media only screen and (max-width: 699px){
+    .navigation{
+        grid-template-columns: 1fr;
+    }
 }
 
 .navigation form input{

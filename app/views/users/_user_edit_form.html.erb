@@ -1,17 +1,23 @@
 
 <div id="edit-form">
+
     <%= form_for current_user do |f| %>
         <h2>Edit Profile</h2>
-        
-        <%= f.label :email %><br>
+        <% if errors %>
+            <div class="error-messages">
+                <p><%= errors %></p>
+            </div>
+        <% end %>        
+
+        <%= f.label "Change Email (optional)" %><br>
         <%= f.email_field :email %><br>
         
         
-        <%= f.label :new_password %><br>
+        <%= f.label "Change Password (optional)" %><br>
         <%= f.password_field :new_password %><br>
 
-        <%= f.label :current_password %><br>
-        <%= f.password_field :password %><br>
+        <%= f.label "Current Password (required)" %><br>
+        <%= f.password_field :password, required: true %><br>
 
         <%= f.submit %>
     <% end %>

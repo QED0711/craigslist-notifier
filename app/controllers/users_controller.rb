@@ -54,12 +54,18 @@ class UsersController < ApplicationController
     def update
         @user = current_user
         if @user.authenticate(params[:user][:password])
+            @user.email = params[:user][:email]
             if params[:user][:new_password] != ""
                 @user.password = params[:user][:new_password]
                 @user.save
+                redirect_to :root
+            else
+                redirect_to :root
             end
+        else
+            @errors = "Incorrect password"
+            render :edit
         end
-        redirect_to :root
     end
 
     private

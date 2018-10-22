@@ -16,3 +16,8 @@
     font-weight: 600;
     margin-top: 10px;
 }
+
+.error-messages{
+    color: var(--primary-accent);
+    font-weight: 600;
+}

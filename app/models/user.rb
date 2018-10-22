@@ -19,4 +19,8 @@ class User < ApplicationRecord
         end.flatten
     end
 
+    def password_error
+        errors.add(:password, "Incorrect Password")
+    end
+
 end
