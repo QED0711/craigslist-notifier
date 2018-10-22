@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :login_redirect, only: [:login, :new, :signin, :create]
+    skip_before_action :login_redirect, only: [:login, :new, :signin, :create, :edit]
 
     def login
         @user = User.new
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     end
 
     def edit
-
+        @user = current_user
     end
 
     def update

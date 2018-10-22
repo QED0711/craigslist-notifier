@@ -1,5 +1,6 @@
 <nav class="navigation">
     <h4>User: <%= current_user.email %></h4>
-    <%= button_to "Profile", edit_user_path(current_user), method: :get %>
+    <%= button_to "Home", user_searches_path(current_user), method: :get %>
+    <%= button_to "Edit Profile", edit_user_path(current_user), method: :get %>
     <%= button_to  "Logout", logout_path, method: :delete %>
 </nav>
