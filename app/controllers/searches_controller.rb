@@ -57,9 +57,9 @@ class SearchesController < ApplicationController
   end
 
   def toggle_active
-    # binding.pry
     @search = Search.find(params[:search][:id])
     @search.active = !@search.active
+    # binding.pry
     @search.save
     render json: @search, status: 204
   end
