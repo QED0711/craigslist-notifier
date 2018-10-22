@@ -23,12 +23,14 @@
      --background: #50D2C2;
      --primary-dark: #1f423f;
      --primary-light: #e9e9e9;
+
      --primary-accent: #da2955;
+     --secondary-accent: #fad739;
 
      --primary-font: 'Verdana', Geneva, Tahoma, sans-serif;
 
-     --secondary-dark: #27b4a8;
-     --tertiary-dark: rgb(34, 151, 147);
+     --secondary-dark: #00000013;
+     --tertiary-dark: #229793;
      /* --tertiary-dark: rgb(39, 180, 168); */
 
  }

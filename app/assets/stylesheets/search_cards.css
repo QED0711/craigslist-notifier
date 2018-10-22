@@ -65,10 +65,48 @@
 .card-buttons > input[type=submit]{
     cursor: pointer;
     border-radius: 10px;
-    border: 2px solid black;
-    background-color: whitesmoke;
+    background-color: var(--primary-light);
     font-weight: 600;
 
+}
+
+.delete-button input{
+    color: var(--primary-accent);
+    border: 1px solid var(--primary-accent);
+}
+
+.edit-button input{
+    color: var(--secondary-accent);
+    border: 1px solid var(--secondary-accent);
+}
+
+.toggle_form input{
+    color: var(--background);
+    border: 1px solid var(--background);
+}
+
+.card-interaction{
+    
+}
+
+.card-edit-form{
+    font-family: var(--primary-font);
+}
+
+.card-edit-form input[type=text], .card-edit-form textarea{
+    border-radius: 4px;
+    border: 1px solid var(--primary-dark);
+    resize: none;
+    font-family: var(--primary-font);
+    
+    
+}
+
+.card-edit-form button, .card-edit-form input[type=submit]{
+    border-radius: 4px;
+    border: 1px solid var(--primary-dark);
+    background-color: var(--primary-accent);
+    color: var(--primary-light);
 }
 
 .edit-url, .edit-description{
