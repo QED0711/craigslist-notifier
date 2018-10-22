@@ -60,6 +60,7 @@ class UsersController < ApplicationController
                 @user.save
                 redirect_to :root
             else
+                @user.save
                 redirect_to :root
             end
         else

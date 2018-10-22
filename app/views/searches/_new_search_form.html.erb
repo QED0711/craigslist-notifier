@@ -16,6 +16,6 @@
         <%= f.text_area :description, placeholder: "(a short description of the expected items on the page)" %><br>
 
         <%= f.submit "Watch This Page", id: "define_search" %>
-
+        <em><h5><%= "all notifications will be sent to: #{current_user.email}" %></h5></em>
     <% end %>
 </div>

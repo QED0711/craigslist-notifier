@@ -16,6 +16,11 @@
     margin-bottom: 10px;
 }
 
+.new-search-form h5{
+    text-align: center;
+    margin-top: 0;
+}
+
 #search_url, #search_description{
     width: 100%;
     margin: 0 auto;
@@ -38,7 +43,7 @@
     width: 30%;
     margin: 0 auto;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     font-size: 1.2em;
     padding: 8px 0;
     border: none;

@@ -1,5 +1,9 @@
 body{
+    min-height: 1080px;
     background-color: var(--background);
+    /* background-color: #3c988d; */
+    background-image: linear-gradient(0deg, #49b6a9 0%, #50d2c2 100%);
+
 }
 
 #app{
