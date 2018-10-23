@@ -25,18 +25,24 @@ class UsersController < ApplicationController
     end
 
     def create
-        if params[:user][:confirm_password] && params[:user][:password] == params[:user][:confirm_password]
-            user = User.new(user_params)
-            if user.save
-                session[:user_id] = user.id
-                redirect_to user_searches_path(current_user)
+        # binding.pry
+        if params[:access_token] == ENV["access_token"]
+            if params[:user][:confirm_password] && params[:user][:password] == params[:user][:confirm_password]
+                user = User.new(user_params)
+                if user.save
+                    session[:user_id] = user.id
+                    redirect_to user_searches_path(current_user)
+                else
+                    @user = user
+                    render :new
+                end
             else
-                @user = user
-                render :new
+                user = User.new
+                redirect_to signup_path, errors: "Invalid Email or Password"
             end
         else
-            user = User.new
-            redirect_to signup_path, errors: "Invalid Email or Password"
+            @errors = "Invalid Access Token"
+            redirect_to signup_path
         end
     end
 

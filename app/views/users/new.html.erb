@@ -1,5 +1,8 @@
 
 <div id="landing-box">
+    <% if @errors %>
+        <h5>@errors</h5>
+    <% end %>
     <%= render partial: 'users/user_form', locals: {user: @user, action: "signup", url: users_path} %>
 
     <%= button_to "Back Home", root_path, method: :get %>

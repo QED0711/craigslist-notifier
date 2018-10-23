@@ -2,6 +2,9 @@
 
 .cl-link{
     color: var(--primary-accent);
+    background-color: var(--primary-light);
+    border-radius: 4px;
+    padding: 0 2px;
 }
 
 .new-search-form{

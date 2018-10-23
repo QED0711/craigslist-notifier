@@ -12,6 +12,9 @@
         <% if action == "signup" %>
             <%= f.label :confirm_password %><br>
             <%= f.password_field :confirm_password %><br>
+
+            <%= label_tag :access_token %><br>
+            <%= text_field_tag :access_token %><br>
         <% end %>
 
         <%= f.submit "#{action == 'login' ? 'Login' : 'Signup'}" %>
