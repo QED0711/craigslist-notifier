@@ -44,14 +44,12 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: var(--primary-light);
-    padding: 0 9px 0 9px;
+    padding: 0 9px 5px 9px;
     color: var(--card-font-color)
-    
-
 }
 
 .active-true{
-    border-left: solid 10px var(--primary-dark);
+    border-left: solid 10px var(--background);
 }
 
 .active-false{
@@ -64,12 +62,13 @@
 
 .card-buttons{
     display: inline;
+    cursor: pointer;
 }
 
 .card-buttons > input[type=submit]{
     cursor: pointer;
     border-radius: 10px;
-    background-color: var(--primary-light);
+    background-color: var(--primary-dark);
     font-weight: 600;
 
 }
@@ -90,7 +89,13 @@
 }
 
 .card-interaction{
-    
+    padding: 5px 0 5px 5px;
+    background-color: var(--tertiary-dark);
+    border-radius: 4px;
+}
+
+.card-interaction a{
+    color: var(--primary-light);
 }
 
 .card-edit-form{

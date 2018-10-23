@@ -7,9 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user = User.create(email: "qdizon@gmail.com", password: "123", authorization: "admin")
+user = User.create(email: ENV["test_user_1_email"], password: ENV["test_user_1_password"], authorization: "admin")
 
-user.searches.create(url: "https://washingtondc.craigslist.org/search/vga?query=pc", description: "pc video game listings in DC")
-user.searches.create(url: "https://washingtondc.craigslist.org/d/electronics/search/ela", description: "Electronics in DC")
 
-Crawler.delay(run_at: 5.minutes.from_now).run_searches
+# if you add any searches above this line, make sure to uncomment the line below. 
+# Crawler.delay(run_at: 5.minutes.from_now).run_searches
