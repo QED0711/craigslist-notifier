@@ -58,6 +58,10 @@
     border-left: solid 10px var(--primary-accent);
 }
 
+.card-status{
+    margin: 0;
+}
+
 .card-buttons{
     display: inline;
 }
