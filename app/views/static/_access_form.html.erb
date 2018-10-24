@@ -1,0 +1,17 @@
+
+<%= form_tag '/access' do %>
+
+    <p>
+        Note: This project is a proof of concept, and is not intended to be an enterprise level application. 
+        Because I do not charge for this service, the resources for this application are limited (particularly when it comes to sending out notifications).
+        If I am able to grant you access to this application, your account will have a daily notification limit.
+    </p>
+        
+    <p>Thank you for your interest and understanding!</p>
+        
+    <p>Please provide the email address where you would like to receive your access code</p>
+    <%= label_tag :email %><br>
+    <%= email_field_tag :email %><br>
+
+    <%= submit_tag "Request an Access Code" %>
+<% end %>

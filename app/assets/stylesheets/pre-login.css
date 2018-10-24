@@ -11,13 +11,20 @@
     text-align: center;
 
     background-color: var(--primary-light); 
-    padding: 20px 0 25px;
+    padding: 20px 10px 25px;
     border-radius: 10px;
 
     box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.445);
 
     font-family:var(--primary-font);
 }
+
+#request-link{
+    color: var(--primary-accent) !important;
+}
+
+
+
 
 .login-buttons{
     display: grid;
@@ -55,6 +62,8 @@
 #pre-login form input[type="email"], input[type="password"], input[type=text]{
     border: 1px solid var(--primary-dark);
 }
+
+
 
 #login-errors{
     color: var(--primary-accent);

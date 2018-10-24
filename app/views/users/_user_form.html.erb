@@ -15,6 +15,7 @@
 
             <%= label_tag :access_token %><br>
             <%= text_field_tag :access_token %><br>
+            <p>Don't have an access token? Request one <a id="request-link" href='/request_access'>here</a>.</p>
         <% end %>
 
         <%= f.submit "#{action == 'login' ? 'Login' : 'Signup'}" %>
