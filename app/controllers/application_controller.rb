@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def admin_access
+        if !current_user.admin?
+            redirect_to :root
+        end
+    end
+
 end

@@ -1,0 +1,18 @@
+
+
+<div id="landing-box">
+
+    <%= form_tag '/send_token' do %>
+
+        <p>Enter email to send access code</p>
+
+        <%= label_tag :email %><br>
+        <%= email_field_tag :email %><br>
+
+        <%= label_tag :grant_access %><br>
+        <%= check_box_tag :grant_access %><br>
+
+        <%= submit_tag "Send Access Token" %>
+
+    <% end %>
+</div>

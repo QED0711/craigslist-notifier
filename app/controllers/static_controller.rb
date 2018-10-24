@@ -1,5 +1,7 @@
 class StaticController < ApplicationController
     skip_before_action :login_redirect, only: [:home, :request_access, :access, :request_received]
+    before_action :admin_access, only: [:send_access_code]
+
     def home
         if logged_in?
             redirect_to user_searches_path(current_user) if logged_in? 
@@ -20,6 +22,20 @@ class StaticController < ApplicationController
 
     def request_received
         render layout: "pre_login"
+    end
+
+    def access_permission
+
+    end
+
+    def send_token
+        # binding.pry
+        if params[:grant_access].to_i == 1
+            binding.pry
+        else
+            binding.pry
+
+        end
     end
 
 end

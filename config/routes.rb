@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/request_access' => 'static#request_access', as: 'request'
   post '/access' => 'static#access'
   get '/request_received' => 'static#request_received'
+  get '/access' => 'static#access_permission'
+  post '/send_token' => 'static#send_token'
 
   resources :users, only: [:create, :edit, :update] do
     resources :searches
