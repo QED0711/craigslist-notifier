@@ -1,7 +1,7 @@
 
 <div id="landing-box">
     <% if @errors %>
-        <h5>@errors</h5>
+        <h5 id="login-errors"><em><%= @errors %></em></h5>
     <% end %>
     <%= render partial: 'users/user_form', locals: {user: @user, action: "signup", url: users_path} %>
 

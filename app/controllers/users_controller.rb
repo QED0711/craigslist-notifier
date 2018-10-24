@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        # binding.pry
         if params[:access_token] == ENV["access_token"]
             if params[:user][:confirm_password] && params[:user][:password] == params[:user][:confirm_password]
                 user = User.new(user_params)
@@ -34,15 +33,18 @@ class UsersController < ApplicationController
                     redirect_to user_searches_path(current_user)
                 else
                     @user = user
-                    render :new
+                    render :new, layout: "pre_login"
                 end
             else
-                user = User.new
-                redirect_to signup_path, errors: "Invalid Email or Password"
+                @user = User.new
+                @errors = "Passwords must be the same"
+                render :new, layout: "pre_login"
             end
         else
+            # binding.pry
+            @user = User.new
             @errors = "Invalid Access Token"
-            redirect_to signup_path
+            render :new, layout: "pre_login"
         end
     end
 
