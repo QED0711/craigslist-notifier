@@ -15,4 +15,13 @@ class Request
         !!token.match(Regexp.new(ENV['token_auth']))
     end
 
+    def self.send_token(email)
+        token = self.generate_token
+        RequestMailer.send_token(email, token).deliver
+    end
+
+    def self.send_access_denied(email)
+        RequestMailer.send_access_denied(email).deliver
+    end
+
 end
