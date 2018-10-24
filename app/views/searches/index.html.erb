@@ -1,6 +1,9 @@
 <div class="current_user" data-id=<%= @user.id %>
 </div>
 
+<% if current_user.admin? %>
+    <%= link_to 'Manage Access Requests', '/access' %>
+<% end %>
 
 <%= render partial: 'new_search_form', locals: {search: Search.new}  %>
 

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        if params[:access_token] == ENV["access_token"]
+        if Request.authenticate_token(params[:access_token])
             if params[:user][:confirm_password] && params[:user][:password] == params[:user][:confirm_password]
                 user = User.new(user_params)
                 if user.save
