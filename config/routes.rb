@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'static#home'
   get '/request_access' => 'static#request_access', as: 'request'
   post '/access' => 'static#access'
+  get '/request_received' => 'static#request_received'
 
   resources :users, only: [:create, :edit, :update] do
     resources :searches

@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-    skip_before_action :login_redirect, only: [:home, :request_access, :access]
+    skip_before_action :login_redirect, only: [:home, :request_access, :access, :request_received]
     def home
         if logged_in?
             redirect_to user_searches_path(current_user) if logged_in? 
@@ -13,7 +13,13 @@ class StaticController < ApplicationController
     end
 
     def access
-        binding.pry
+        # binding.pry
+        Request.delay.send_request(params[:email])
+        redirect_to :request_received
+    end
+
+    def request_received
+        render layout: "pre_login"
     end
 
 end
