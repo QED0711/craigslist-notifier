@@ -1,0 +1,7 @@
+<% if current_user.admin? %>
+<p>
+  <%= link_to 'Manage Access Requests', '/access' %>
+  | 
+  <%= link_to 'Seach Activity', '/search_activity' %>
+</p>
+<% end %>

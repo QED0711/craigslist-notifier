@@ -3,12 +3,19 @@ class AdminController < ApplicationController
     skip_before_action :login_redirect, only: [:request_access, :access, :request_received]
     before_action :admin_access, only: [:send_access_code]
 
+    def search_activity
+        @active_searches = Search.where(active: true)
+        @job = Delayed::Job.last
+    end
+    
     def start_searches
+        Delayed::Job.delete_all
+        Crawler.delay.run_searches
 
+        redirect_to :search_activity
     end
 
     def manage_requests
-
     end
 
     def request_access

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/access' => 'admin#access_permission'
   post '/send_token' => 'admin#send_token'
 
+  get '/search_activity' => 'admin#search_activity'
+  post '/start_searches' => 'admin#start_searches'
+
   resources :users, only: [:create, :edit, :update] do
     resources :searches
   end

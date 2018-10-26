@@ -1,0 +1,11 @@
+
+<div id="landing-box">
+    <h4>Active Searches: <%= @active_searches.count %></h4>
+
+    <% if @job %>
+        <h4>Next Scheduled Search: <%= @job.run_at %></h4>
+    <% else %>
+        <h4>No Scheduled Searches</h4>
+    <% end %>
+    <%= button_to 'Run Searches Now', :start_searches %>
+</div>
