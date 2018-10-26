@@ -11,12 +11,11 @@ class Request
     #     str
     # end
 
-    def self.authenticate_token(token)
-        !!token.match(Regexp.new(ENV['token_auth']))
-    end
+    # def self.authenticate_token(token)
+    #     !!token.match(Regexp.new(ENV['token_auth']))
+    # end
 
-    def self.send_token(email)
-        token = self.generate_token
+    def self.send_token(email, token)
         RequestMailer.send_token(email, token).deliver
     end
 

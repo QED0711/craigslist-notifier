@@ -21,6 +21,11 @@ class Token < ApplicationRecord
         new_token
     end
 
+    def self.authenticate(code, email)
+        token = Token.find_by(code: code)
+        !!token.code.match(Regexp.new(ENV['token_auth'])) && token.user_email == email 
+    end
+
     private
 
     def self.generate

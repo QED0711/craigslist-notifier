@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        if Request.authenticate_token(params[:access_token])
+        if Token.authenticate(params[:access_token], params[:user][:email])
             if params[:user][:confirm_password] && params[:user][:password] == params[:user][:confirm_password]
                 user = User.new(user_params)
                 if user.save
@@ -41,7 +41,6 @@ class UsersController < ApplicationController
                 render :new, layout: "pre_login"
             end
         else
-            # binding.pry
             @user = User.new
             @errors = "Invalid Access Token"
             render :new, layout: "pre_login"
