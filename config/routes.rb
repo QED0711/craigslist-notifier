@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root to: 'static#home'
-  get '/request_access' => 'static#request_access', as: 'request'
-  post '/access' => 'static#access'
-  get '/request_received' => 'static#request_received'
-  get '/access' => 'static#access_permission'
-  post '/send_token' => 'static#send_token'
+  get '/request_access' => 'admin#request_access', as: 'request'
+  post '/access' => 'admin#access'
+  get '/request_received' => 'admin#request_received'
+  get '/access' => 'admin#access_permission'
+  post '/send_token' => 'admin#send_token'
 
   resources :users, only: [:create, :edit, :update] do
     resources :searches
