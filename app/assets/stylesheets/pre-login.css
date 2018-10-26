@@ -5,7 +5,8 @@
 #landing-box{
     font-family: var(--primary-font);
 
-    width: 500px;
+    max-width: 40%;
+    min-width: 75px;
     margin: 0 auto;
     margin-top: 100px;
     text-align: center;
@@ -29,6 +30,19 @@
 .login-buttons{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    white-space: normal;
+
+}
+
+@media only screen and (max-width: 940px){
+    #landing-box{
+        max-width: 100%;
+    }
+    
+    .login-buttons{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
 }
 
 #pre-login a{

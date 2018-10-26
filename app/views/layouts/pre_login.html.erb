@@ -10,8 +10,11 @@
   </head>
 
   <body>
-    <div id="pre-login">
-      <%= yield %>
+    <div id="app">
+      <div id="pre-login">
+        <%= yield %>
+        <%= render partial: 'layouts/footer' %>
+      </div>
     </div>
 
   </body>

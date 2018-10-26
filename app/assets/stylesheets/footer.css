@@ -55,7 +55,7 @@
 }
 
 .footer-content a{
-    color: var(--primary-accent);
+    color: var(--primary-accent) !important;
     background-color: var(--primary-light);
     padding: 0 2px;
     border-radius: 4px;
