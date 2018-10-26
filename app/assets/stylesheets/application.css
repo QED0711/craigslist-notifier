@@ -17,6 +17,7 @@
  *= require navigation
  *= require pre-login
  *= require edit-form
+ *= require footer
  */
 
  :root{

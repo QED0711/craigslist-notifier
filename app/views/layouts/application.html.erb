@@ -10,12 +10,15 @@
   </head>
 
   <body>
-  <div id="background">
+
   <div id="app">
     <%= render partial: 'layouts/navigation' %>
-      <%= yield %>
-      </div>
-    </div>
+    
+    <%= yield %>
+
+    <%= render partial: 'layouts/footer' %>
+  </div>
+
     
   </body>
 </html>
