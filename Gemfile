@@ -31,6 +31,7 @@ gem 'sidekiq-scheduler'
 gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'nokogiri'
+gem 'daemons'
 
 gem 'delayed_job_active_record' #run rake jobs:work to start jobs server in development, jobs:clear to clear db
 # gem 'resque'
