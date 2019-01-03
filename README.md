@@ -41,15 +41,17 @@ test_email: "test@email.com"
 For basic user and admin functionality (allowing new users), you will need to defined the following environment variables:
 
 ```
+### Needed for Notifications ###
 default_mailer
 gmail_username
 gmail_password
 
+### Needed to define a default admin user. Alternatively, define in seed.rb ###
 test_user_1_email
 test_user_1_password
-
 admin_email
 
+### Needed to allow for new user access through the application interface. May omit if you don't need this feature ###
 token_1
 token_2
 token_auth
@@ -72,30 +74,48 @@ token_auth: A regular expression search pattern that will be used to authenticat
 "RANDOMCHARS[token_1 value]{10}RANDOMCHARS[token_2 value]{13}"
 This essentially takes the token_1 and token_2 values that you defined before, and places them into a regular express. You can make this as simple or complex as you like. 
 
-
-
-
 ## Setting Up Your Database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Now that you have defined your environment variables, you can create your database. Run the following:
+```
+$ rake db:migrate
+```
+Now, we need to create some seed data. If you defined all the test_user environment variables above, you can skip this step. If not, navigate to db/seeds.rb and add a new user like this:
+```
+User.create(email: "some_email@email.com", password: "super_secret_password", authorization: "admin"
+```
+If you leave off the authorization portion, the user will be added without admin priviledges. 
 
-Things you may want to cover:
+You can add as many users as you like here using the format above.
 
-* Ruby version
+With you seed data in place, run:
+```
+rake db:seed
+```
 
-* System dependencies
+After these have finished running, you can check to make sure everything is working by doing the following:
 
-* Configuration
+```
+$ rails c
+(enter the rails console)
+$ User.first
+(should return a User Object with the same email and password that you defined as test_user_1_email and test_user_1_password or that are defined in your seed.rb file)
+```
 
-* Database creation
+Finally, in order to get regular notifications, you will need to have a background process running. This application uses Delayed Jobs to run these background proceses. Open a new terminal window and run the following:
 
-* Database initialization
+```
+rake jobs:work
+```
 
-* How to run the test suite
+While these jobs are working, the application will look for new craigslist listings every 5 minutes.
 
-* Services (job queues, cache servers, search engines, etc.)
+Now that all your data is in place, and the application is regularly looking for new listings, run:
 
-* Deployment instructions
+```
+$ rails s
+```
 
-* ...
+Navigate again to "http:localhost:3000", and you should now be able to sign in and create new searches. 
+
+Happy Craiglist Searching!
