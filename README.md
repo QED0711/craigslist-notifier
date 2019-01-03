@@ -24,9 +24,16 @@ To clone the application and install its dependencies, run:
 $ git clone git@github.com:QED0711/craigslist-notifier.git
 $ cd criagslist-notifier
 $ bundle install
+$ rake db:migrate RAILS_ENV=development
 $ rails s
 ```
 You should be able to view the app at http://localhost:3000. You will not, however, be able to sign in or perform any other actions that require user authentication at this point. To do that, you will need to setup some environment variables and your database. 
+
+Note: If you have problems with postgresql (or just want to use the lighter weight sqlite3), you can change your database to use sqlite3. 
+
+In config/database.yml, change all instances of 'postgresql' to 'sqlite3'
+
+In the Gemfile, comment out the 'pg' gem, and add "gem 'sqlite3'"
 
 ## Setting Up ENV Variables
 
@@ -74,12 +81,8 @@ token_auth: A regular expression search pattern that will be used to authenticat
 "RANDOMCHARS[token_1 value]{10}RANDOMCHARS[token_2 value]{13}"
 This essentially takes the token_1 and token_2 values that you defined before, and places them into a regular express. You can make this as simple or complex as you like. 
 
-## Setting Up Your Database
+## Setting Up Your Database with Seed Data
 
-Now that you have defined your environment variables, you can create your database. Run the following:
-```
-$ rake db:migrate
-```
 Now, we need to create some seed data. If you defined all the test_user environment variables above, you can skip this step. If not, navigate to db/seeds.rb and add a new user like this:
 ```
 User.create(email: "some_email@email.com", password: "super_secret_password", authorization: "admin")
