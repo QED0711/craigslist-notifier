@@ -32,8 +32,7 @@ You should be able to view the app at http://localhost:3000. You will not, howev
 
 This application uses figaro to manage environment variables. you will need to create a file called "application.yml" in the app/config folder. You can do this with the following commands (assuming you are already in the craiglist-notifier directory):
 ```
-$ cd app/config
-$ touch application.yml
+$ touch config/application.yml
 ```
 In this newly created file, you will add all your environment variables in the following format:
 ```
@@ -41,6 +40,8 @@ test_email: "test@email.com"
 ```
 The following are the environment variables that you will need to add to get full functionality:
 
+####defualt_mailer
+The email address you will use to send notifications from. 
 
 
 
