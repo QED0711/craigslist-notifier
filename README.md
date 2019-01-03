@@ -10,9 +10,11 @@ Due to the volume of posts on Craigslist on a daily basis, they does not update 
 
 Since this is a non-comercial application (running on free dynos on Heroku), computing resources are limited. Due to a limit on the number of email notifications I can send out daily, I can only accomodate a small number of users. Were I to add enterprise level features, I would need to charge for access to this app, which would be against the Craigslist Terms of Use.
 
-If you would like to clone and run a local version of this application, keep reading below!
+If you would like to fork and clone a this application to run a local version, keep reading below!
 
 ## Cloning and General Information
+
+This application was built with ruby version 2.x.x, and rails version 2.x.x
 
 ## Installing Dependencies
 
