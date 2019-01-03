@@ -82,7 +82,7 @@ $ rake db:migrate
 ```
 Now, we need to create some seed data. If you defined all the test_user environment variables above, you can skip this step. If not, navigate to db/seeds.rb and add a new user like this:
 ```
-User.create(email: "some_email@email.com", password: "super_secret_password", authorization: "admin"
+User.create(email: "some_email@email.com", password: "super_secret_password", authorization: "admin")
 ```
 If you leave off the authorization portion, the user will be added without admin priviledges. 
 
@@ -116,6 +116,6 @@ Now that all your data is in place, and the application is regularly looking for
 $ rails s
 ```
 
-Navigate again to "http:localhost:3000", and you should now be able to sign in and create new searches. 
+Navigate again to "http://localhost:3000", and you should now be able to sign in and create new searches. 
 
 Happy Craiglist Searching!
