@@ -38,10 +38,40 @@ In this newly created file, you will add all your environment variables in the f
 ```
 test_email: "test@email.com"
 ```
-The following are the environment variables that you will need to add to get full functionality:
+For basic user and admin functionality (allowing new users), you will need to defined the following environment variables:
 
-####defualt_mailer
-The email address you will use to send notifications from. 
+```
+default_mailer
+gmail_username
+gmail_password
+
+test_user_1_email
+test_user_1_password
+
+admin_email
+
+token_1
+token_2
+token_auth
+```
+default_mailer: The email address you will use to send notifications from. This is currently set to be a gmail address, but you can change this if you like (not covered in this README). I just created a new gmail address for this.
+
+gmail_username: E.G. if the gmail account you are using is test@gmail.com, then your username is "test".
+
+gmail_password: The password to your gmail account.
+
+test_user_1_email: The email account you would like to use to sign in. This will also be the admin email (see below)
+
+test_user_1_password: The default password for your test_user_1_email.
+
+admin_email: The same as test_user_1_email. This will allow you to grant access to other users. 
+
+token_1 & token_2: These should be strings of random letters and numbers. Using these strings, the program will create random authentication tokens that new users can use to gain access to the application. If you intend this for personal use only, you do not need to define these. 
+
+token_auth: A regular expression search pattern that will be used to authenticate tokens. it could look something like this:
+"RANDOMCHARS[token_1 value]{10}RANDOMCHARS[token_2 value]{13}"
+This essentially takes the token_1 and token_2 values that you defined before, and places them into a regular express. You can make this as simple or complex as you like. 
+
 
 
 
