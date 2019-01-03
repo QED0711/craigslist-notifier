@@ -12,13 +12,13 @@ Since this is a non-comercial application (running on free dynos on Heroku), com
 
 If you would like to clone and run a local version of this application, keep reading below!
 
-# Cloning and General Information
+## Cloning and General Information
 
-# Installing Dependencies
+## Installing Dependencies
 
-# Setting Up ENV Variables
+## Setting Up ENV Variables
 
-# Setting Up Your Database
+## Setting Up Your Database
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
