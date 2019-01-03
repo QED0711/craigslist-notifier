@@ -14,13 +14,14 @@ If you would like to clone a this application to run a local version, keep readi
 
 ## Cloning and General Information
 
-This application was built with ruby version 2.5.1, and rails version 5.2.1
+This application was built with ruby version 2.5.1, and rails version 5.2.1. The following instructions assume that you have these versions of ruby and rails installed.
 
-To clone the application, run: 
+To clone the application and install its dependencies, run: 
 
 ```
-git clone 
-
+$ git clone git@github.com:QED0711/craigslist-notifier.git
+$ cd criagslist-notifier
+$ bundle install
 ```
 
 ## Installing Dependencies
