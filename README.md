@@ -37,7 +37,7 @@ In the Gemfile, comment out the 'pg' gem, and add "gem 'sqlite3'"
 
 ## Setting Up ENV Variables
 
-This application uses figaro to manage environment variables. you will need to create a file called "application.yml" in the app/config folder. You can do this with the following commands (assuming you are already in the craiglist-notifier directory):
+This application uses figaro to manage environment variables. you will need to create a file called "application.yml" in the app/config folder. You can do this with the following commands (assuming you are already in the craigslist-notifier directory):
 ```
 $ touch config/application.yml
 ```
@@ -121,4 +121,4 @@ $ rails s
 
 Navigate again to "http://localhost:3000", and you should now be able to sign in and create new searches. 
 
-Happy Craiglist Searching!
+Happy Craigslist Searching!
