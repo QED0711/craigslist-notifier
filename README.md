@@ -12,9 +12,11 @@ Since this is a non-comercial application (running on free dynos on Heroku), com
 
 If you would like to clone a this application to run a local version, keep reading below!
 
-## Cloning and General Information
+## Version Information
 
 This application was built with ruby version 2.5.1, and rails version 5.2.1. The following instructions assume that you have these versions of ruby and rails installed.
+
+## Cloning and Getting Started
 
 To clone the application and install its dependencies, run: 
 
@@ -22,11 +24,25 @@ To clone the application and install its dependencies, run:
 $ git clone git@github.com:QED0711/craigslist-notifier.git
 $ cd criagslist-notifier
 $ bundle install
+$ rails s
 ```
-
-## Installing Dependencies
+You should be able to view the app at http://localhost:3000. You will not, however, be able to sign in or perform any other actions that require user authentication at this point. To do that, you will need to setup some environment variables and your database. 
 
 ## Setting Up ENV Variables
+
+This application uses figaro to manage environment variables. you will need to create a file called "application.yml" in the app/config folder. You can do this with the following commands (assuming you are already in the craiglist-notifier directory):
+```
+$ cd app/config
+$ touch application.yml
+```
+In this newly created file, you will add all your environment variables in the following format:
+```
+test_email: "test@email.com"
+```
+The following are the environment variables that you will need to add to get full functionality:
+
+
+
 
 ## Setting Up Your Database
 
